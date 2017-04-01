@@ -1,0 +1,18 @@
+<html>
+ <head>
+  <title>Pet Classifier</title>
+ </head>
+ <body>
+  <h1>Please, upload the image of your pet!</h1>
+  <br/>
+  <form id        =  "uploadForm"
+       enctype   =  "multipart/form-data"
+       action    =  "/inception/pet"
+       method    =  "post"
+  >
+   <input type="file" name="petImage" accept=".jpg"/>&nbsp;&nbsp;
+   <input type="submit" value="Upload Image" name="submit">
+  </form>
+ <font color="red">*This app only accepts images with .jpg extension.</font>
+ </body>
+</html>
