@@ -1,0 +1,18 @@
+<html>
+ <head>
+  <title>Flower Classifier</title>
+ </head>
+ <body>
+  <h1>Please, upload the image of your flower!</h1>
+  <br/>
+  <form id        =  "uploadForm"
+       enctype   =  "multipart/form-data"
+       action    =  "/inception/flower"
+       method    =  "post"
+  >
+   <input type="file" name="flowerImage" accept=".jpg"/>&nbsp;&nbsp;
+   <input type="submit" value="Upload Image" name="submit">
+  </form>
+ <font color="red">*This app only accepts images with .jpg extension.</font>
+ </body>
+</html>

@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: flower-classification-app
+spec:
+  template:
+    metadata:
+      labels:
+        app: flower-classification-app
+    spec:
+      containers:
+      - name: inception-app-flowers
+        image: tf-inception-app-flowers
+        imagePullPolicy: "IfNotPresent"
+        command:
+        - /bin/sh
+        - -c
+        args:
+        - cd tensorflow-app/flowers && nodejs app.js --inception_client=/tensorflow-app/inception_client/inception_client --server=${INCEPTION_SERVICE_SERVICE_HOST}:${INCEPTION_SERVICE_SERVICE_PORT}
+        ports:
+        - containerPort: 3000
+      nodeSelector:
+        kubernetes.io/hostname: 192.168.122.253
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: flower-classification-app
+  name: flower-classification-app-service
+spec:
+  type: NodePort
+  ports:
+  - port: 3000
+  selector:
+    app: flower-classification-app
