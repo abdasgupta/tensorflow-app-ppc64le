@@ -4,7 +4,7 @@ How To Run
 ----------
 
 ```bash
-$ git clone https://github.com/abdasgupta/tensorflow-app-ppc64le.git
+$ git clone https://github.com/abdasgupta/tensorflow-app-ppc64le.git tensorflow-app
 $ cd tensorflow-app/pet
 $ touch package.json
 $ npm install express --save
