@@ -51,7 +51,7 @@ app.post('/inception/flower', upload.single('flowerImage'), function (req, res) 
     res.send(renderedText)
   } else {
     const spawn = require('child_process').spawn;
-    const inception = spawn(ic, ['--server',server, '--image', __dirname + "/my-uploads/" + imageName + ".jpg"])
+    const inception = spawn('python', [ic, '--server',server, '--image', __dirname + "/my-uploads/" + imageName + ".jpg"])
 
     inception.stdout.on('data', function(data) {
       renderedText += '<br/><h4>Your flower looks like: '
