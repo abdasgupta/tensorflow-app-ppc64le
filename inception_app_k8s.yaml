@@ -16,7 +16,7 @@ spec:
         - /bin/sh
         - -c
         args:
-        - cd tensorflow-app/pet && node app.js --inception_client=/inception_client/inception_client --server=10.254.35.139:9000
+        - cd tensorflow-app/pet && node app.js --inception_client=/inception_client.py --server=10.254.35.139:9000
         ports:
         - containerPort: 3000
 ---

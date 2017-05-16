@@ -45,13 +45,13 @@ app.post('/inception/pet', upload.single('petImage'), function (req, res) {
                      '<br/>'
 
   if (!fs.existsSync(ic)) {
-    console.log('Not a valid path for inception client')
+    console.log('Not a valid path for inception client python file')
     renderedText += 'Not a valid path for tensorflow_serving directory'
     renderedText += '</body></html>'
     res.send(renderedText)
   } else {
     const spawn = require('child_process').spawn;
-    const inception = spawn(ic, ['--server',server, '--image', __dirname + "/my-uploads/" + imageName + ".jpg"])
+    const inception = spawn("python", [ic, '--server',server, '--image', __dirname + "/my-uploads/" + imageName + ".jpg"])
 
     inception.stdout.on('data', function(data) {
       renderedText += '<br/><h4>Your pet looks like: '
